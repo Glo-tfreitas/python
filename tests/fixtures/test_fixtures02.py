@@ -9,7 +9,7 @@ filename = "file1.txt"
 @pytest.fixture()
 def setup01():
     wk1 = weekdays1.copy()
-    wk1.append('thur')
+    wk1.append('thu')
     yield wk1
     print(f"\nAfter yield in setup01 fixture. wk1: {wk1}]")
     #wk1.clear() --> teardown
@@ -20,7 +20,7 @@ def setup01():
 @pytest.fixture()
 def setup02():
     wk2 = weekdays2.copy()
-    wk2.insert(0, 'thur')
+    wk2.insert(0, 'thu')
     yield wk2
 
 # More realistic case of a fixture (preparing an environment and after using it tearing it down)
@@ -29,7 +29,7 @@ def setup03():
     f = open(filename, 'w')
     f.write("Pytest is good")
     f.close()
-    f = f.open(filename, "fw")
+    f = open(filename, "r+")
     yield f
     os.remove(filename)
 
@@ -44,4 +44,4 @@ def test_len(setup01, setup02):
     assert len(weekdays1 + setup02) == len(setup01 + weekdays2)
 
 def test_filetest(setup03):
-    assert (setup03.readLine() == "Pytest is good")
+    assert (setup03.readline() == "Pytest is good")

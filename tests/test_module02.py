@@ -12,5 +12,5 @@ class TestFailsIntentionally():
         assert type(1.3) == int
 
     def test_strs(self):
-        assert str.upper("python") == "PYTHON"
-        assert "pytest".capitalize() == "Pytest"
+        assert str.upper("python") == "Python"
+        assert "pytest".capitalize() == "pytest"
