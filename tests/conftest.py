@@ -1,5 +1,22 @@
 import pytest # type: ignore
 
+QA_config = 'qa.prop'
+prod_config = 'prod.prop'
+
+def pytest_addoption(parser):
+    parser.addoption("--cmdopt", default="QA")
+
+@pytest.fixture()
+def CmdOpt(pytestconfig):
+    print("\n In CmdOpt fixture function")
+    opt = pytestconfig.getoption("cmdopt")
+    if opt == "PROD":
+        f = open(prod_config, 'r')
+    else: 
+        f = open(QA_config, 'r')
+    yield f
+
+
 def pytest_configure():
     pytest.weekdays1 = ['mon', 'tue', 'wed']
     pytest.weekdays2 = ['fri', 'sat', 'sun']
