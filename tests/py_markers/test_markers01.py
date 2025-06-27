@@ -18,6 +18,7 @@ def test_str03():
     assert letters[-1] == 'z' == letters[25]
 
 @pytest.mark.str
+@pytest.mark.sanity
 def test_strslice():
     assert letters[:] == letters
     assert letters[10:] =='klmnopqrstuvwxyz'
