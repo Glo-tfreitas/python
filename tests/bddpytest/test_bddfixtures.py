@@ -15,6 +15,18 @@ def setup_set():
     countries = {'Poland', 'America', 'Brasil'}
     return countries
 
+@given('A datatype set')
+def check_set_type(setup_set):
+    print("In background checking set type")
+    if not isinstance(setup_set, set):
+        pytest.xfail("The type is not a set type")
+
+@given('the set is not empty')
+def check_set_not_empty(setup_set):
+    print("In background checking non-empty set")
+    if len(setup_set) == 0:
+        pytest.xfail("The set of elems is empty")
+
 @given('A set with 3 elements')
 def set_of_elems(setup_set):
     if len(setup_set) == 0:
