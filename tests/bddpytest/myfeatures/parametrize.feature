@@ -1,3 +1,4 @@
+@bddparam
 Feature: Paramerizing tests in Pytest BDD
 
     Scenario: Check varieties of fruit
@@ -7,6 +8,7 @@ Feature: Paramerizing tests in Pytest BDD
         But if we add a different variety of fruit
         Then the count of varieties increases to 4
 
+    @bddscenario
     Scenario: Parametrize benefits
         Given there are 5 fruits
         When I eat 3 fruits

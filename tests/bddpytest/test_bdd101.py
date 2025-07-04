@@ -14,7 +14,7 @@ def pytest_configure(): # GLOBAL VARIABLE
 
 # First scenario
 
-@scenario('Withdrawal of money')
+@scenario(FEATURE_FILE, 'Withdrawal of money')
 def test_withdrawal():
     print("End of withdrawal test")
     pass
@@ -33,7 +33,7 @@ def final_balance():
 
 # Second scenario
 
-@scenario('Removal of items from set')
+@scenario(FEATURE_FILE, 'Removal of items from set')
 def test_removal_of_items():
     pass
 
